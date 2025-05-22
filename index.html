@@ -3,9 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Portail évènements association</title>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Portail de l'association</h1>
+      <button id="theme-toggle">
+        image lune
+        <img src="" alt="" />
+      </button>
+    </header>
+    <main>
+      <section id="events">
+        <h2>Les évènements à ne pas rater</h2>
+        <!-- INJECTION API ICI -->
+      </section>
+      <section id="planning">
+        <h3>Mon planning</h3>
+        <!-- LES EVENEMENTS AJOUTER APPAITRONS ICI -->
+      </section>
+      <div id="modal" class="hidden">
+        <button id="close-modal">Croix</button>
+        <h4 id="modal-title"></h4>
+        <p id="modal-description"></p>
+        <p id="modal-date"></p>
+        <p id="modal-venue"></p>
+        <a id="modal-link" href="#" target="_blank"></a>
+      </div>
+    </main>
+  </body>
 </html>
