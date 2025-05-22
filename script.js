@@ -27,25 +27,18 @@ async function fetchData() {
     }
     const data = await response.json();
     dataEvents = data.events;
-    console.log(dataEvents);
     dataEvents.forEach((event) => {
-      console.log(event.title);
-      console.log(event.description);
-      console.log(event.date);
-      console.log(event.venue.city);
       /* CREATION A LA VOLEE DES CARTES EVENEMENTS */
       /* STRUCTURE */
       const div = document.createElement("div");
       const title = document.createElement("h4");
       const date = document.createElement("p");
       const lieu = document.createElement("p")
-      const description = document.createElement("p");
       const buttonDetails = document.createElement("button");
       const buttonAdd = document.createElement("button");
       /* CONTENU DES EVENEMENTS ET BOUTONS */
       title.textContent = event.title;
       date.textContent = event.date;
-      description.textContent = event.description;
       buttonDetails.textContent = "Voir détails";
       buttonAdd.textContent = "Ajouter";
       if (event.venue != "" && event.venue != null)  {
@@ -58,15 +51,32 @@ async function fetchData() {
       div.appendChild(title);
       div.appendChild(date);
       div.appendChild(lieu);
-      div.appendChild(description);
       div.appendChild(buttonDetails);
       div.appendChild(buttonAdd);
       events.appendChild(div);
+
+      /* EVENEMENTS SUR LES BOUTONS */
+      /* BOUTON DETAILS */
+      buttonDetails.addEventListener("click", () => {
+        titreModal.textContent = event.title;
+        descriptionModal.textContent = event.description;
+        dateModal.textContent = event.date;
+        venueModal.textContent = `${event.venue.address} / ${event.venue.city}
+      / ${event.venue.venue}`;
+        linkModal.href = event.url;
+        linkModal.textContent = "Voir l'évènement";
+        divModal.classList.remove("hidden");
+      })
+      buttonAdd.addEventListener("click", () => {
+        console.log(`Ajouté au planning : ${event.title}`);
+  });
     });
   } catch {
     console.log("erreur lors de la récupérations des données");
   }
 }
-fetchData();
+fetchData()
 
-
+buttonCloseModal.addEventListener("click", () => {
+  divModal.classList.add("hidden");
+})
