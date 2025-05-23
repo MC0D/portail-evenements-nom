@@ -84,6 +84,28 @@ body {
   background-color: #33b5ac;
 }
 
+#planning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+#planning h3 {
+  display: inline-block;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffe66d;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+#planning #container-fav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: center;
+}
+
 #overlay-modal {
   position: fixed;
   top: 0;

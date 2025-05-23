@@ -4,6 +4,7 @@ const body = document.body;
 const events = document.getElementById("events");
 const planning = document.getElementById("planning");
 const containerCard = document.getElementById("container-card");
+const containerFav = document.getElementById("container-fav")
 
 /* RECUPERATION DES ID POUR LA MODALE */
 
@@ -114,10 +115,10 @@ buttonCloseModal.addEventListener("click", () => {
 ///////
 
 function renderPlanning() {
-  planning.innerHTML = ""; 
+  containerFav.innerHTML = ""; 
 
   if (userPlanning.length === 0) {
-    planning.innerHTML = "<p>Aucun événement dans votre planning.</p>";
+    containerFav.innerHTML = "<p>Aucun événement dans votre planning.</p>";
     return;
   }
 
@@ -154,7 +155,7 @@ function renderPlanning() {
     card.appendChild(date);
     card.appendChild(venue);
     card.appendChild(container);
-    planning.appendChild(card);
+    containerFav.appendChild(card);
   });
 }
 renderPlanning();
