@@ -16,6 +16,19 @@ const venueModal = document.getElementById("modal-venue");
 const linkModal = document.getElementById("modal-link");
 const overlayModal = document.getElementById("overlay-modal");
 
+/* CREATION DES FONCTIONS POUR SAUVEGARDER LE PLANNING DANS LE LOCAL STORAGE ET LE RECUPERER */
+
+function savePlanning(planningList) {
+  localStorage.setItem("planning", JSON.stringify(planningList));
+}
+
+function loadPlanning() {
+  const saved = localStorage.getItem("planning");
+  return saved ? JSON.parse(saved) : [];
+}
+
+let userPlanning = loadPlanning();
+
 /* RECUPERATION DES DONNEES VIA L'API */
 
 async function fetchData() {
@@ -27,9 +40,7 @@ async function fetchData() {
       console.log("Données récupérées avec succès");
     }
     const data = await response.json();
-    dataEvents = data.events;
-    console.log(dataEvents);
-    
+    dataEvents = data.events;    
     dataEvents.forEach((event) => {
       /* CREATION A LA VOLEE DES CARTES EVENEMENTS */
       /* STRUCTURE */
@@ -70,13 +81,23 @@ async function fetchData() {
         titreModal.textContent = event.title;
         descriptionModal.innerHTML = event.description;
         dateModal.textContent = event.date;
+        if (event.venue != "" && event.venue != null)  {
         venueModal.textContent = `${event.venue.address} / ${event.venue.city}
       / ${event.venue.venue}`;
+      } else {
+        venueModal.textContent = "Pas d'adresse disponible"
+      }
         linkModal.href = event.url;
         linkModal.textContent = "Clique ici pour voir l'évènement";
         overlayModal.style.display = "flex";
       })
       buttonAdd.addEventListener("click", () => {
+        const alreadyInPlanning = userPlanning.find((e) => e.id === event.id);
+  if (!alreadyInPlanning) {
+    userPlanning.push(event);
+    savePlanning(userPlanning);
+    renderPlanning();
+  }
         console.log(`Ajouté au planning : ${event.title}`);
   });
     });
@@ -89,3 +110,51 @@ fetchData()
 buttonCloseModal.addEventListener("click", () => {
   overlayModal.style.display = "none";
 })
+
+///////
+
+function renderPlanning() {
+  planning.innerHTML = ""; 
+
+  if (userPlanning.length === 0) {
+    planning.innerHTML = "<p>Aucun événement dans votre planning.</p>";
+    return;
+  }
+
+  userPlanning.forEach((event) => {
+    const card = document.createElement("div");
+    card.classList.add("event-card");
+
+    const title = document.createElement("h4");
+    title.textContent = event.title;
+
+    const date = document.createElement("p");
+    date.textContent = event.date;
+
+    const venue = document.createElement("p");
+    venue.textContent = event.venue?.address
+      ? `${event.venue.address} / ${event.venue.city} / ${event.venue.venue}`
+      : "Pas d'adresse disponible";
+
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("btn", "btn-remove");
+    removeBtn.textContent = "Retirer";
+
+    removeBtn.addEventListener("click", () => {
+      userPlanning = userPlanning.filter((e) => e.id !== event.id);
+      savePlanning(userPlanning);
+      renderPlanning();
+    });
+
+    const container = document.createElement("div");
+    container.classList.add("btn-container");
+    container.appendChild(removeBtn);
+
+    card.appendChild(title);
+    card.appendChild(date);
+    card.appendChild(venue);
+    card.appendChild(container);
+    planning.appendChild(card);
+  });
+}
+renderPlanning();
