@@ -26,6 +26,8 @@ async function fetchData() {
       console.log("Données récupérées avec succès");
     }
     const data = await response.json();
+    console.log(data);
+    
     dataEvents = data.events;
     dataEvents.forEach((event) => {
       /* CREATION A LA VOLEE DES CARTES EVENEMENTS */
