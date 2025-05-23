@@ -1,3 +1,67 @@
-.hidden {
+#overlay-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: $box-shadow;
+    padding: 2rem;
+    font-family: $main-font;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+
+    h5 {
+    margin: 0;
+    font-size: 2rem;
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: black;
+  }
+
+  a {
+    display: inline-block;
+    background-color: $third-color;
+    color: black;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($third-color, 10%);
+    }
+  }
+}
+
+#close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: $third-color;
+  font-size: 1rem;
+  border: solid 2px $secondary-color;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0.5rem;
 }

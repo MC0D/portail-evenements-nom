@@ -14,7 +14,7 @@ const descriptionModal = document.getElementById("modal-description");
 const dateModal = document.getElementById("modal-date");
 const venueModal = document.getElementById("modal-venue");
 const linkModal = document.getElementById("modal-link");
-
+const overlayModal = document.getElementById("overlay-modal");
 
 /* RECUPERATION DES DONNEES VIA L'API */
 
@@ -27,9 +27,9 @@ async function fetchData() {
       console.log("Données récupérées avec succès");
     }
     const data = await response.json();
-    console.log(data);
-    
     dataEvents = data.events;
+    console.log(dataEvents);
+    
     dataEvents.forEach((event) => {
       /* CREATION A LA VOLEE DES CARTES EVENEMENTS */
       /* STRUCTURE */
@@ -68,13 +68,13 @@ async function fetchData() {
       /* BOUTON DETAILS */
       buttonDetails.addEventListener("click", () => {
         titreModal.textContent = event.title;
-        descriptionModal.textContent = event.description;
+        descriptionModal.innerHTML = event.description;
         dateModal.textContent = event.date;
         venueModal.textContent = `${event.venue.address} / ${event.venue.city}
       / ${event.venue.venue}`;
         linkModal.href = event.url;
-        linkModal.textContent = "Voir l'évènement";
-        divModal.classList.remove("hidden");
+        linkModal.textContent = "Clique ici pour voir l'évènement";
+        overlayModal.style.display = "flex";
       })
       buttonAdd.addEventListener("click", () => {
         console.log(`Ajouté au planning : ${event.title}`);
@@ -87,5 +87,5 @@ async function fetchData() {
 fetchData()
 
 buttonCloseModal.addEventListener("click", () => {
-  divModal.classList.add("hidden");
+  overlayModal.style.display = "none";
 })

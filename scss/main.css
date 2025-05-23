@@ -84,8 +84,68 @@ body {
   background-color: #33b5ac;
 }
 
-.hidden {
+#overlay-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+#modal h5 {
+  margin: 0;
+  font-size: 2rem;
+  color: #4ecdc4;
+  font-weight: bold;
+}
+#modal p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+}
+#modal a {
+  display: inline-block;
+  background-color: #ffe66d;
+  color: black;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+#modal a:hover {
+  background-color: #ffdd3a;
+}
+
+#close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ffe66d;
+  font-size: 1rem;
+  border: solid 2px #F5A623;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0.5rem;
 }
 
 header {
