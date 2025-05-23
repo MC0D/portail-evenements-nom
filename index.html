@@ -9,21 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <header>
       <h1>Portail de l'association</h1>
-      <button id="theme-toggle">
-        image lune
-        <img src="" alt="" />
+      <button id="theme-toggle" aria-label="Changer le thème">
+        <img
+          src="./assets/img/lune_svg.svg"
+          alt="Icone de lune pour activer le thème sombre"
+        />
       </button>
     </header>
     <main>
       <section id="events">
         <h2>Les évènements à ne pas rater</h2>
+        <div id="container-card"></div>
         <!-- INJECTION API ICI -->
       </section>
       <section id="planning">

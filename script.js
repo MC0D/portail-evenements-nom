@@ -3,6 +3,7 @@
 const body = document.body;
 const events = document.getElementById("events");
 const planning = document.getElementById("planning");
+const containerCard = document.getElementById("container-card");
 
 /* RECUPERATION DES ID POUR LA MODALE */
 
@@ -33,11 +34,16 @@ async function fetchData() {
       /* CREATION A LA VOLEE DES CARTES EVENEMENTS */
       /* STRUCTURE */
       const div = document.createElement("div");
+      div.classList.add("event-card");
       const title = document.createElement("h4");
       const date = document.createElement("p");
       const lieu = document.createElement("p")
+      const buttonContainer = document.createElement("div");
+      buttonContainer.classList.add("btn-container");
       const buttonDetails = document.createElement("button");
+      buttonDetails.classList.add("btn", "btn-details");
       const buttonAdd = document.createElement("button");
+      buttonAdd.classList.add("btn", "btn-add");
       /* CONTENU DES EVENEMENTS ET BOUTONS */
       title.textContent = event.title;
       date.textContent = event.date;
@@ -53,9 +59,10 @@ async function fetchData() {
       div.appendChild(title);
       div.appendChild(date);
       div.appendChild(lieu);
-      div.appendChild(buttonDetails);
-      div.appendChild(buttonAdd);
-      events.appendChild(div);
+      buttonContainer.appendChild(buttonDetails);
+      buttonContainer.appendChild(buttonAdd);
+      div.appendChild(buttonContainer);
+      containerCard.appendChild(div);
 
       /* EVENEMENTS SUR LES BOUTONS */
       /* BOUTON DETAILS */

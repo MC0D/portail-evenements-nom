@@ -1,8 +1,113 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #f7fff7;
+}
+
+#events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+#events h2 {
+  display: inline-block;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffe66d;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+#container-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.event-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  width: 400px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.2s ease;
+}
+.event-card:hover {
+  transform: translateY(-5px);
+}
+.event-card h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #4ecdc4;
+  font-family: "Poppins", sans-serif;
+}
+.event-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: black;
+  font-family: "Poppins", sans-serif;
+}
+.event-card .btn-container {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.event-card .btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+.event-card .btn.btn-details {
+  background-color: #F5A623;
+  color: dark;
+}
+.event-card .btn.btn-details:hover {
+  background-color: #db8c0a;
+}
+.event-card .btn.btn-add {
+  background-color: #4ecdc4;
+  color: dark;
+}
+.event-card .btn.btn-add:hover {
+  background-color: #33b5ac;
 }
 
 .hidden {
   display: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  background-color: #4ecdc4;
+  box-shadow: 0 4px 10px rgba(255, 230, 109, 0.25);
+}
+header h1 {
+  font-size: 3rem;
+  color: black;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+header button#theme-toggle {
+  position: absolute;
+  right: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
