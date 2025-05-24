@@ -112,7 +112,7 @@ buttonCloseModal.addEventListener("click", () => {
   overlayModal.style.display = "none";
 })
 
-///////
+/* AFFICHAGE DANS LE PLANNING */
 
 function renderPlanning() {
   containerFav.innerHTML = ""; 
@@ -159,3 +159,40 @@ function renderPlanning() {
   });
 }
 renderPlanning();
+
+
+/* MISE EN PLACE DU MODE CLAIR/SOMBRE ET COOKIES POUR CETTE FEATURE */
+
+/* FONCTION CREATION DE COOKIE */
+function setCookie(name, value, days) {
+  const maxAge = days * 24 * 60 * 60; 
+  document.cookie = `${name}=${encodeURIComponent(value)}; max-age=${maxAge}; path=/`;
+}
+/* FONCTION LECTURE DE COOKIE */
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+  for (const cookie of cookies) {
+    const [key, value] = cookie.split("=");
+    if (key === name) {
+      return value
+    } 
+  }
+}
+
+/* THEME ENREGISTRE AU CHARGEMENT */
+
+const savedTheme = getCookie("theme") || "light";
+document.body.setAttribute("data-theme", savedTheme);
+
+const themeToggle = document.getElementById("theme-toggle");
+
+themeToggle.addEventListener("click", () => {
+
+  const isDark = document.body.getAttribute("data-theme") === "dark";
+
+  const newTheme = isDark ? "light" : "dark";
+
+  document.body.setAttribute("data-theme", newTheme);
+
+  setCookie("theme", newTheme, 365);
+});

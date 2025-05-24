@@ -192,4 +192,15 @@ header button#theme-toggle {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+body {
+  background-color: #f7fff7;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme=dark] {
+  background-color: #292f36;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
