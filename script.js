@@ -42,6 +42,8 @@ async function fetchData() {
     }
     const data = await response.json();
     dataEvents = data.events;    
+    console.log(data);
+    
     dataEvents.forEach((event) => {
       /* CREATION A LA VOLEE DES CARTES EVENEMENTS */
       /* STRUCTURE */
@@ -58,7 +60,7 @@ async function fetchData() {
       buttonAdd.classList.add("btn", "btn-add");
       /* CONTENU DES EVENEMENTS ET BOUTONS */
       title.textContent = event.title;
-      date.textContent = event.date;
+      date.textContent = event.start_date;
       buttonDetails.textContent = "Voir détails";
       buttonAdd.textContent = "Ajouter";
       if (event.venue != "" && event.venue != null)  {
@@ -81,7 +83,7 @@ async function fetchData() {
       buttonDetails.addEventListener("click", () => {
         titreModal.textContent = event.title;
         descriptionModal.innerHTML = event.description;
-        dateModal.textContent = event.date;
+        dateModal.textContent = event.start_date;
         if (event.venue != "" && event.venue != null)  {
         venueModal.textContent = `${event.venue.address} / ${event.venue.city}
       / ${event.venue.venue}`;
@@ -130,13 +132,31 @@ function renderPlanning() {
     title.textContent = event.title;
 
     const date = document.createElement("p");
-    date.textContent = event.date;
+    date.textContent = event.start_date;
 
     const venue = document.createElement("p");
     venue.textContent = event.venue?.address
       ? `${event.venue.address} / ${event.venue.city} / ${event.venue.venue}`
       : "Pas d'adresse disponible";
+    
 
+      const detailsBtn = document.createElement("button");
+      detailsBtn.classList.add("btn", "btn-details");
+      detailsBtn.textContent = "Voir détails";
+
+  detailsBtn.addEventListener("click", () => {
+    titreModal.textContent = event.title;
+    descriptionModal.innerHTML = event.description;
+    dateModal.textContent = event.start_date;
+
+    venueModal.textContent = event.venue?.address
+      ? `${event.venue.address} / ${event.venue.city} / ${event.venue.venue}`
+      : "Pas d'adresse disponible";
+
+    linkModal.href = event.url;
+    linkModal.textContent = "Voir l'évènement";
+    overlayModal.style.display = "flex";
+  });
     const removeBtn = document.createElement("button");
     removeBtn.classList.add("btn", "btn-remove");
     removeBtn.textContent = "Retirer";
@@ -149,6 +169,7 @@ function renderPlanning() {
 
     const container = document.createElement("div");
     container.classList.add("btn-container");
+    container.appendChild(detailsBtn);
     container.appendChild(removeBtn);
 
     card.appendChild(title);
@@ -181,18 +202,31 @@ function getCookie(name) {
 
 /* THEME ENREGISTRE AU CHARGEMENT */
 
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+
+function updateThemeIcon(theme) {
+  if (theme === "dark") {
+    themeIcon.src = "./assets/img/soleil_svg.svg";
+    themeIcon.alt = "Icône de soleil (thème clair)";
+  } else {
+    themeIcon.src = "./assets/img/lune_svg.svg";
+    themeIcon.alt = "Icône de lune (thème sombre)";
+  }
+}
+
 const savedTheme = getCookie("theme") || "light";
 document.body.setAttribute("data-theme", savedTheme);
-
-const themeToggle = document.getElementById("theme-toggle");
+updateThemeIcon(savedTheme);
 
 themeToggle.addEventListener("click", () => {
-
   const isDark = document.body.getAttribute("data-theme") === "dark";
-
   const newTheme = isDark ? "light" : "dark";
 
   document.body.setAttribute("data-theme", newTheme);
-
   setCookie("theme", newTheme, 365);
+
+  updateThemeIcon(newTheme);
 });
+
+

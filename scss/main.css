@@ -104,6 +104,32 @@ body {
   flex-wrap: wrap;
   gap: 4rem;
   justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.btn-remove {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-remove:hover {
+  background-color: #d62c1a;
+}
+
+#container-fav > p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  background-color: #ffe66d;
+  border-radius: 0.5rem;
 }
 
 #overlay-modal {
@@ -202,5 +228,5 @@ body {
 
 body[data-theme=dark] {
   background-color: #292f36;
-  color: white;
+  color: black;
 }/*# sourceMappingURL=main.css.map */

@@ -15,9 +15,36 @@
         border-radius: 0.5rem;
     }
     #container-fav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-  justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+      justify-content: center;
+      margin-bottom: 4rem;
 }
+}
+
+.btn-remove {
+  background-color: #e74c3c; 
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: darken(#e74c3c, 10%);
+  }
+}
+
+#container-fav > p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: $main-font;
+  display: inline-block;
+  background-color: $third-color;
+  border-radius: 0.5rem;
 }
