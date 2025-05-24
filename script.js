@@ -63,6 +63,8 @@ async function fetchData() {
       date.textContent = event.start_date;
       buttonDetails.textContent = "Voir détails";
       buttonAdd.textContent = "Ajouter";
+      buttonDetails.setAttribute("aria-label", `Voir les détails de l'évènement ${event.title}`);
+      buttonAdd.setAttribute("aria-label", `Ajouter l'évènement ${event.title} au planning`);
       if (event.venue != "" && event.venue != null)  {
         lieu.textContent = `${event.venue.address} / ${event.venue.city}
       / ${event.venue.venue}`;
@@ -143,6 +145,7 @@ function renderPlanning() {
       const detailsBtn = document.createElement("button");
       detailsBtn.classList.add("btn", "btn-details");
       detailsBtn.textContent = "Voir détails";
+      detailsBtn.setAttribute("aria-label", `Voir les détails de l'évènement ${event.title}`);
 
   detailsBtn.addEventListener("click", () => {
     titreModal.textContent = event.title;
@@ -160,6 +163,7 @@ function renderPlanning() {
     const removeBtn = document.createElement("button");
     removeBtn.classList.add("btn", "btn-remove");
     removeBtn.textContent = "Retirer";
+    removeBtn.setAttribute("aria-label", `Retirer l'évènement ${event.title} du planning`);
 
     removeBtn.addEventListener("click", () => {
       userPlanning = userPlanning.filter((e) => e.id !== event.id);

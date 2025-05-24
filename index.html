@@ -14,9 +14,12 @@
     />
   </head>
   <body>
-    <header>
+    <header aria-label="En-tête du site">
       <h1>Portail de l'association</h1>
-      <button id="theme-toggle" aria-label="Changer le thème">
+      <button
+        id="theme-toggle"
+        aria-label="Basculer entre thème clair et sombre"
+      >
         <img
           id="theme-icon"
           src="./assets/img/lune_svg.svg"
@@ -24,25 +27,32 @@
         />
       </button>
     </header>
-    <main>
-      <section id="events">
+    <main aria-label="Contenu principal du site">
+      <section id="events" aria-label="Liste des évènements à venir">
         <h2>Les évènements à ne pas rater</h2>
         <div id="container-card"></div>
         <!-- INJECTION API ICI -->
       </section>
-      <section id="planning">
+      <section id="planning" aria-label="Section du planning utilisateur">
         <h3>Mon planning</h3>
         <div id="container-fav"></div>
         <!-- LES EVENEMENTS AJOUTER APPAITRONS ICI -->
       </section>
-      <div id="overlay-modal">
-        <div id="modal">
-          <button id="close-modal">Fermer</button>
+      <div id="overlay-modal" aria-hidden="true">
+        <div id="modal" aria-label="Détails de l'évènement sélectionné">
+          <button id="close-modal" aria-label="Fermer la fenêtre modale">
+            Fermer
+          </button>
           <h5 id="modal-title"></h5>
           <p id="modal-description"></p>
           <p id="modal-date"></p>
           <p id="modal-venue"></p>
-          <a id="modal-link" href="#" target="_blank"></a>
+          <a
+            id="modal-link"
+            href="#"
+            target="_blank"
+            aria-label="Lien vers l'évènement sur le site externe"
+          ></a>
         </div>
       </div>
     </main>
