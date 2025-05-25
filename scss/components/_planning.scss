@@ -5,31 +5,30 @@
   gap: 5rem;
   margin-top: 3rem;
 
+  h3 {
+    display: inline-block;
+    font-size: 2rem;
+    font-family: $title-font;
+    background-color: $third-color;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+  #container-fav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    @media screen and (max-width: 768px) {
+      gap: 1rem;
+    }
+  }
+  
   @media screen and (max-width: 768px) {
     gap: 1rem;
     margin-top: 0;
   }
-
-
-    h3 {
-        display: inline-block;
-        font-size: 2rem;
-        font-family: $title-font;
-        background-color: $third-color;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-    }
-    #container-fav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4rem;
-      justify-content: center;
-      margin-bottom: 4rem;
-
-      @media screen and (max-width: 768px) {
-        gap: 1rem;
-      }
-}
 }
 
 .btn-remove {

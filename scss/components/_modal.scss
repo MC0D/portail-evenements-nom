@@ -1,11 +1,13 @@
 #overlay-modal {
-    position: fixed;
-    inset: 0;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    @media screen and (max-width: 768px) {
+  position: fixed;
+  inset: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
     padding: 1rem;
   }
 }
@@ -51,6 +53,7 @@
       background-color: darken($third-color, 10%);
     }
   }
+  
   @media screen and (max-width: 768px) {
     max-height: 90%;
   }

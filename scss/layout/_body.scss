@@ -2,10 +2,11 @@ body {
   background-color: $background-light;
   color: black;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-body[data-theme="dark"] {
-  background-color: $background-dark;
-  color: black;
+
+  &[data-theme="dark"] {
+    background-color: $background-dark;
+    color: black;
+  }
 }
 
 @media screen and (max-width: 768px) {
