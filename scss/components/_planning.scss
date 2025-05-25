@@ -5,6 +5,11 @@
   gap: 5rem;
   margin-top: 3rem;
 
+  @media screen and (max-width: 768px) {
+    gap: 1rem;
+    margin-top: 0;
+  }
+
 
     h3 {
         display: inline-block;
@@ -20,6 +25,10 @@
       gap: 4rem;
       justify-content: center;
       margin-bottom: 4rem;
+
+      @media screen and (max-width: 768px) {
+        gap: 1rem;
+      }
 }
 }
 

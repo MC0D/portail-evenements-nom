@@ -7,3 +7,38 @@ body[data-theme="dark"] {
   background-color: $background-dark;
   color: black;
 }
+
+@media screen and (max-width: 768px) {
+  #container-card {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .event-card {
+    width: 100%;
+  }
+
+
+  h1, h2, h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+}

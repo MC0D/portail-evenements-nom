@@ -1,4 +1,5 @@
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,6 +14,11 @@ header {
     font-family: $title-font;
     font-weight: 400;
     letter-spacing: 3px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      width: 70%;
+    }
   }
 
   button#theme-toggle {
@@ -21,5 +27,18 @@ header {
     background: none;
     border: none;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    font-size: 1.5;
+    
+
   }
 }
+
