@@ -59,7 +59,9 @@ async function fetchData() {
       const buttonAdd = document.createElement("button");
       buttonAdd.classList.add("btn", "btn-add");
       /* CONTENU DES EVENEMENTS ET BOUTONS */
-      title.textContent = event.title;
+      title.textContent = parseHtmlEntities(event.title);
+      console.log(event.title);
+      
       date.textContent = event.start_date;
       buttonDetails.textContent = "Voir détails";
       buttonAdd.textContent = "Ajouter";
@@ -114,6 +116,7 @@ fetchData()
 
 buttonCloseModal.addEventListener("click", () => {
   overlayModal.style.display = "none";
+  
 })
 
 /* AFFICHAGE DANS LE PLANNING */
@@ -234,3 +237,9 @@ themeToggle.addEventListener("click", () => {
 });
 
 
+function parseHtmlEntities(str) {
+    return str.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
+        var num = parseInt(numStr, 10); 
+        return String.fromCharCode(num);
+    });
+}

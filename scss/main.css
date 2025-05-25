@@ -157,6 +157,7 @@ body {
 #overlay-modal {
   position: fixed;
   inset: 0;
+  display: none;
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
@@ -170,7 +171,6 @@ body {
 #modal {
   position: relative;
   width: 600px;
-  height: 400px;
   background-color: white;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
@@ -178,7 +178,6 @@ body {
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 1rem;
   margin: auto;
 }
@@ -229,6 +228,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  overflow: auto;
 }
 
 header {
