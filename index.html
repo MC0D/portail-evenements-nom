@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portail d'évènements association</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header aria-label="En-tête du site">
+      <h1>Portail de l'association</h1>
+      <button
+        id="theme-toggle"
+        aria-label="Basculer entre thème clair et sombre"
+      >
+        <img
+          id="theme-icon"
+          src="./assets/img/lune_svg.svg"
+          alt="Icone de lune pour activer le thème sombre"
+        />
+      </button>
+    </header>
+    <main aria-label="Contenu principal du site">
+      <section id="events" aria-label="Liste des évènements à venir">
+        <h2>Les évènements à ne pas rater</h2>
+        <div id="container-card"></div>
+        <!-- INJECTION API ICI -->
+      </section>
+      <section id="planning" aria-label="Section du planning utilisateur">
+        <h3>Mon planning</h3>
+        <div id="container-fav"></div>
+        <!-- LES EVENEMENTS AJOUTER APPAITRONS ICI -->
+      </section>
+      <div id="overlay-modal">
+        <div id="modal" aria-label="Détails de l'évènement sélectionné">
+          <button id="close-modal" aria-label="Fermer la fenêtre modale">
+            Fermer
+          </button>
+          <h5 id="modal-title"></h5>
+          <div id="modal-wrapper">
+            <p id="modal-description"></p>
+            <p id="modal-date"></p>
+            <p id="modal-venue"></p>
+            <a
+              id="modal-link"
+              href="#"
+              target="_blank"
+              aria-label="Lien vers l'évènement sur le site externe"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

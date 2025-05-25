@@ -1,0 +1,79 @@
+#overlay-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+#modal {
+  position: relative;
+  width: 600px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: $box-shadow;
+  padding: 2rem;
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: auto;
+
+  h5 {
+    margin: 0;
+    font-size: 2rem;
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: black;
+  }
+
+  a {
+    display: inline-block;
+    background-color: $third-color;
+    color: black;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($third-color, 10%);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    max-height: 90%;
+  }
+}
+
+#close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: $third-color;
+  font-size: 1rem;
+  border: solid 2px $secondary-color;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+#modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+}
