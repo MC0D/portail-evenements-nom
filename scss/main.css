@@ -108,7 +108,7 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #ffe66d;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 #planning #container-fav {
   display: flex;
@@ -152,6 +152,7 @@ body {
   display: inline-block;
   background-color: #ffe66d;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 #overlay-modal {

@@ -78,7 +78,7 @@ function renderPlanning() {
   containerFav.innerHTML = ""; 
 
   if (userPlanning.length === 0) {
-    containerFav.innerHTML = "<p>Aucun événement dans votre planning.</p>";
+    containerFav.innerHTML = "<p>Aucun événement dans votre planning</p>";
     return;
   }
 

@@ -11,7 +11,7 @@
     font-family: $title-font;
     background-color: $third-color;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
   }
   #container-fav {
     display: flex;
@@ -55,4 +55,5 @@
   display: inline-block;
   background-color: $third-color;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
